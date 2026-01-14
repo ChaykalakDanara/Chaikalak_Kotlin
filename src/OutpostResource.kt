@@ -13,5 +13,5 @@ fun nain(){
     val bonusMineral = mineral.copy(id = 2, name = "Minerals Bonus", amount = mineral.amount + 50)
     println(gas.toString())
     println(mineral.toString())
-    println(bonusMineral.)
+    println(bonusMineral.toString())
 }

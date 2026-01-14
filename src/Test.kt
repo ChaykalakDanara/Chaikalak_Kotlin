@@ -12,6 +12,28 @@ data class Item(
         return "ID: $id name: $name quantity: $quantity"
     }
 }
+abstract class Human(val name: String){
+    abstract var age: Int
+    abstract fun hello()
+}
+class Person(name: String, override var age: Int): Human(name){
+    override fun hello(){
+        println("My name is $name")
+    }
+}
+abstract class Figure {
+    abstract fun perimeter(): Float
+    abstract fun area(): Float
+}
+class Rectangle(val width: Float, val height: Float): Figure(){
+    override fun perimeter(): Float {
+        return 2 * (width + height)
+    }
+
+    override fun area(): Float {
+        return width * height
+    }
+}
 fun main(){
     println(age)
     age = 45
@@ -24,4 +46,10 @@ fun main(){
     println(betterSword.toString())
     val (id, name, quantity) = betterSword
     println("ID: $id\n name: $name\n quantity: $quantity\n")
+//    val denis: Human
+//    val pavel: Human = Human(name = "Pavel")
+    val denis: Person = Person(name = "Denis", age = 20)
+    val maksim: Human = Person(name = "Maksim", age = 17)
+    denis.hello()
+    maksim.hello()
 }
