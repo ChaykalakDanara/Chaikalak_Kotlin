@@ -1,4 +1,6 @@
-class Hero( val name: String) {
+package characters
+
+class Hero(val name: String) {
     var health: Int = 100
         set(value){
             field = value.coerceIn(0, 100)

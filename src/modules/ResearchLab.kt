@@ -1,3 +1,8 @@
+package modules
+
+import resources.OutpostResource
+import resources.ResourceManager
+
 class ResearchLab : OutpostModule(name = "Исследовательская лаборатория") {
     override fun performAction(manager: ResourceManager) {
         println("Лаборатория исследует минералы...")
