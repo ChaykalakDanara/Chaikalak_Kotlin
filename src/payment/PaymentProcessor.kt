@@ -8,10 +8,17 @@ class PaymentProcessor {
             return PaymentResult.Error(reason = "Ошибка валидации")
         }
         return when (payment.type) {
-            payment.CardType.VISA -> PaymentResult.Success(id = "VISA-${System.currentTimeMillis()}")
-            payment.CardType.MASTERCARD -> PaymentResult.Processing
-            payment.CardType.MIR -> PaymentResult.Success(id = "MIR-${System.currentTimeMillis()}")
-            payment.CardType.UNKNOWN -> PaymentResult.Error(reason = "Неизвестный тип карты")
+            CardType.VISA -> PaymentResult.Success(id = "VISA-${System.currentTimeMillis()}")
+            CardType.MASTERCARD -> PaymentResult.Processing
+            CardType.MIR -> PaymentResult.Success(id = "MIR-${System.currentTimeMillis()}")
+            CardType.UNKNOWN -> PaymentResult.Error(reason = "Неизвестный тип карты")
+        }
+    }
+    fun show(result: PaymentResult){
+        when(result){
+            is PaymentResult.Success -> println("Успех: ${result.id}")
+            is PaymentResult.Error -> println("Ошибка: ${result.reason}")
+            PaymentResult.Processing -> println("В обработке...")
         }
     }
 }
