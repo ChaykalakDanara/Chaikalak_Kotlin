@@ -19,10 +19,8 @@ class UserProfile(initialName: String, initialEmail: String) {
 fun main() {
     println("Создаём профиль пользователя...")
     val user = UserProfile(
-        initialName = "Алиса",
-        initialEmail = "alice@example.com"
+        initialName = "Алиса", initialEmail = "alice@example.com"
     )
-
     println("\nИмя: ${user.name}")
     println("Email: ${user.email}")
 
